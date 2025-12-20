@@ -1,0 +1,12 @@
+# Gradle
+.gradle/
+build/
+
+# OS / editor junk
+.DS_Store
+
+# IDEs
+.vscode/
+.idea/
+*.iml
+
