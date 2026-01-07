@@ -25,28 +25,30 @@ export default function RadioGroupField({
   onChange,
 }: RadioGroupFieldProps) {
   return (
-    <FormControl>
-      <FormLabel>{label}</FormLabel>
+    <FormControl sx={{ alignItems: "flex-start" }}>
+  <RadioGroup
+    value={value}
+    onChange={(e) => onChange(e.target.value)}
+  >
+    {options.map((opt) => (
+      <FormControlLabel
+        key={opt.value}
+        value={opt.value}
+        label={opt.label} 
+        control={
+          <Radio
+            sx={{
+              color: "white",         
+              "&.Mui-checked": {
+                color: "white",       
+              },
+            }}
+          />
+        }
+      />
+    ))}
+  </RadioGroup>
+</FormControl>
 
-      <RadioGroup
-        value={value}
-        onChange={(e) => {
-        const newValue = e.target.value;
-        onChange(newValue === value ? "" : newValue);
-        }}
-      >
-        {options.map((option) => (
-            <FormControlLabel
-                key={option.value}
-                value={option.value}
-                control={<Radio />}
-                label={option.label}
-                onClick={() => {
-                onChange(option.value === value ? "" : option.value);
-                }}
-            />
-            ))}
-      </RadioGroup>
-    </FormControl>
   );
 }

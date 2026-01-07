@@ -9,7 +9,7 @@ import WhatshotIcon from "@mui/icons-material/Whatshot";
 import GrainIcon from "@mui/icons-material/Grain";
 
 type BreadcrumbItem = {
-  label: string;
+  label: React.ReactNode;
   href?: string;
   icon?: React.ReactNode;
 };
@@ -20,7 +20,18 @@ type IconBreadCrumbsProps = {
 
 export default function IconBreadCrumbs({ items }: IconBreadCrumbsProps) {
   return (
-    <Breadcrumbs aria-label="breadcrumb">
+    <Breadcrumbs 
+     sx={{
+    color: "white",
+    "& .MuiSvgIcon-root": {
+      color: "white",
+    },
+    "& a": {
+      color: "white",
+      textDecoration: "none",
+    },
+  }}
+    >
       {items.map((item, index) =>
         item.href ? (
           <Link
