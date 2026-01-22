@@ -11,12 +11,18 @@ import StarIcon from '@mui/icons-material/Star';
 import AddIcon from '@mui/icons-material/Add';
 import RadioButtons from "./components/RadioButtons";
 import Typography from "@mui/material/Typography";
+import Textbox from "./components/Textbox"
 
+type Task = {
+  id: string;
+  title: string;
+};
 
 
 export default function Home() {
   const [avatar, setAvatar] = useState<string>("/user.png");
   const [gender, setGender] = useState<string>("");
+  const [tasks, setTasks] = useState<Task[]>([]);
 
   return (
     <div className="min-h-screen py-16 px-16 bg-sky-700 font-sans dark:bg-zinc-800">
@@ -50,6 +56,7 @@ export default function Home() {
           />
         </div>
         <div>
+          {tasks.length > 0 && (
           <RadioButtons
            label=""
            value={gender}
@@ -59,6 +66,25 @@ export default function Home() {
             { value: "task1", label: "" },
             { value: "task2", label: "" },
             ]}
+          />
+          )}
+        </div>
+        <div>
+          <Button
+            variant="contained"
+            onClick={() =>
+              setTasks((prev) => [...prev, { id: String(Date.now()), title: "New task" }])
+            }
+          >
+            Create Task
+          </Button>
+        </div>
+        <div>
+          <Textbox
+          label="Input your task here"
+          multiline={true}
+          width={670}
+          rows={4}
           />
         </div>
       </main>
