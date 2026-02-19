@@ -42,11 +42,11 @@ export default function Home() {
                 icon: <StarIcon fontSize="inherit" />,
               },
               {
-                label: <Typography sx={{ color: "white" }}>My Tasks</Typography>,
+                label: <Typography component="span" sx={{ color: "white" }}>My Tasks</Typography>,
               },
               {
                 label: (
-                  <Typography sx={{ color: "white" }}>
+                  <Typography component="span" sx={{ color: "white" }}>
                     New List
                   </Typography>
                 ),
