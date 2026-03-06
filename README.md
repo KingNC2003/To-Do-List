@@ -2,7 +2,7 @@
 
 *** Project Requirements***
 
-  Login Authentification
+  Login Authentication
 	
   User Profiles with the ability to have preset avatars and name
 	
